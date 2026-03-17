@@ -1,0 +1,136 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    SCHEMA DES LIENS - QUI UTILISE QUOI                      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+    AndroidManifest.xml
+    ├── declare android:name=".DemoApplication" ──────→ DemoApplication.java
+    ├── declare LoginActivity (LAUNCHER) ─────────────→ LoginActivity.java
+    ├── declare ListeActivity ────────────────────────→ ListeActivity.java
+    └── declare DetailActivity ───────────────────────→ DetailActivity.java
+
+
+
+    ┌─────────────────────────────────────────────────────────────────────┐
+    │                     DemoApplication.java                            │
+    │                   (DAO / stockage global)                           │
+    │                                                                     │
+    │  - List<Contact> listeContacts                                      │
+    │  - String loginUtilisateur                                          │
+    │  - initListe() ← lit arrays.xml (R.array.contact_noms, etc.)       │
+    │                                                                     │
+    │  Accessible depuis TOUTE Activity avec :                            │
+    │  DemoApplication app = (DemoApplication) getApplicationContext();   │
+    └──────────────────────────┬──────────────────────────────────────────┘
+                               │ fournit les donnees
+                               ▼
+
+    ┌──────────────────────────────────────────────────────────────┐
+    │              FLUX DE NAVIGATION DE L'APP                     │
+    │                                                              │
+    │  LoginActivity ──Intent explicite──→ ListeActivity           │
+    │  (ecran login)    + putExtra LOGIN    (ecran liste)          │
+    │       │                                    │                 │
+    │       │ onClickSiteWeb()                   │ onItemClick()   │
+    │       ▼                                    ▼                 │
+    │  Intent implicite              DetailActivity                │
+    │  ACTION_VIEW (navigateur)       (contient un Fragment)       │
+    │                                        │                     │
+    │                                        ▼                     │
+    │                               DetailFragment                 │
+    │                          (affiche les details)               │
+    │                                        │                     │
+    │                          callback.onActionFermer()           │
+    │                                        │                     │
+    │                                        ▼                     │
+    │                               finish() → retour              │
+    └──────────────────────────────────────────────────────────────┘
+
+
+
+    ┌──────────────────────────────────────────────────────────────┐
+    │               PATTERN MVC DANS LE RECYCLERVIEW               │
+    │                                                              │
+    │   MODELE                  VUE                 CONTROLEUR     │
+    │   ┌──────────┐    ┌──────────────┐    ┌──────────────────┐  │
+    │   │Contact   │    │RecyclerView  │    │ContactAdapter    │  │
+    │   │ .nom     │    │(activity_    │    │ onCreateViewHolder│  │
+    │   │ .tel     │◄───│  liste.xml)  │◄───│ onBindViewHolder │  │
+    │   │ .email   │    │              │    │ getItemCount     │  │
+    │   │ .idImage │    │item_contact  │    │                  │  │
+    │   └──────────┘    │  .xml        │    │ContactViewHolder │  │
+    │                   └──────────────┘    │ setContact()     │  │
+    │   List<Contact>                       │ onClick()        │  │
+    │   dans                                └────────┬─────────┘  │
+    │   DemoApplication                              │             │
+    │                                    OnItemClickListener      │
+    │                                    (→ ListeActivity)        │
+    └──────────────────────────────────────────────────────────────┘
+
+
+
+    ┌──────────────────────────────────────────────────────────────┐
+    │         COMMUNICATION FRAGMENT → ACTIVITY                    │
+    │                                                              │
+    │  DetailFragment                    DetailActivity            │
+    │  ┌────────────────┐               ┌──────────────────┐      │
+    │  │ interface       │               │ implements       │      │
+    │  │ OnFragmentAction│──────────────→│ OnFragmentAction │      │
+    │  │  Listener       │  callback     │  Listener        │      │
+    │  │                 │               │                  │      │
+    │  │ btnFermer.click │               │ onActionFermer() │      │
+    │  │  → callback     │               │  → finish()      │      │
+    │  │   .onAction     │               │                  │      │
+    │  │    Fermer()     │               │ onActionAppeler() │     │
+    │  └────────────────┘               └──────────────────┘      │
+    │                                                              │
+    │  1. Fragment definit l'interface                             │
+    │  2. Activity implemente l'interface                         │
+    │  3. Fragment.onAttach() verifie et stocke le callback       │
+    │  4. Fragment appelle callback.methode() quand necessaire    │
+    └──────────────────────────────────────────────────────────────┘
+
+
+
+    ┌──────────────────────────────────────────────────────────────┐
+    │              VIEW BINDING - CORRESPONDANCES                  │
+    │                                                              │
+    │  Fichier XML                    Classe Binding generee      │
+    │  ─────────────────────────      ─────────────────────────   │
+    │  activity_login.xml        →    ActivityLoginBinding         │
+    │  activity_liste.xml        →    ActivityListeBinding         │
+    │  activity_detail.xml       →    ActivityDetailBinding        │
+    │  item_contact.xml          →    ItemContactBinding           │
+    │  fragment_detail.xml       →    FragmentDetailBinding        │
+    │                                                              │
+    │  Regle : nom_du_fichier.xml → NomDuFichierBinding           │
+    │                                                              │
+    │  ID dans le XML            →    champ dans le Binding        │
+    │  ─────────────────────────      ─────────────────────────   │
+    │  android:id="@+id/textViewNom"  →  binding.textViewNom      │
+    │  android:id="@+id/btn_ok"       →  binding.btnOk            │
+    │  android:id="@+id/recycler"     →  binding.recycler         │
+    └──────────────────────────────────────────────────────────────┘
+
+
+
+    ┌──────────────────────────────────────────────────────────────┐
+    │              FICHIERS ET LEURS ROLES                          │
+    │                                                              │
+    │  AndroidManifest.xml    Declare l'app, activities, perms     │
+    │  DemoApplication.java   Stockage global (DAO), init donnees  │
+    │  Contact.java           Modele POJO (getters/setters)        │
+    │  LoginActivity.java     Ecran login, Intent, cycle de vie    │
+    │  ListeActivity.java     RecyclerView, Menu, Dialog, Toast    │
+    │  DetailActivity.java    Contient le Fragment, callbacks       │
+    │  DetailFragment.java    Fragment, interface callback          │
+    │  ContactAdapter.java    Pont donnees ↔ RecyclerView          │
+    │  ContactViewHolder.java Tient les vues d'un item             │
+    │  arrays.xml             Donnees statiques (noms, tel, etc.)  │
+    │  main_menu.xml          Items du menu de la barre d'action   │
+    │  activity_login.xml     Layout ecran login                   │
+    │  activity_liste.xml     Layout ecran liste                   │
+    │  activity_detail.xml    Layout conteneur de fragment          │
+    │  item_contact.xml       Layout d'UN item dans la liste       │
+    │  fragment_detail.xml    Layout du fragment detail             │
+    └──────────────────────────────────────────────────────────────┘

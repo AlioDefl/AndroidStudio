@@ -1,0 +1,10 @@
+<!--
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║  STRINGS.XML - Toutes les chaines de texte de l'app          ║
+    ║  Bonne pratique : ne pas mettre de texte en dur dans le XML  ║
+    ║  Utiliser @string/nom dans les layouts                       ║
+    ╚═══════════════════════════════════════════════════════════════╝
+-->
+<resources>
+    <string name="app_name">DemoCTP</string>
+</resources>

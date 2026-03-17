@@ -1,0 +1,50 @@
+<!--
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║  ARRAYS.XML - Donnees statiques de l'app                     ║
+    ║  LIEN : DemoApplication.initListe() lit ces tableaux via     ║
+    ║         res.getStringArray(R.array.contact_noms)             ║
+    ║         res.obtainTypedArray(R.array.contact_images)         ║
+    ║                                                               ║
+    ║  Chaque tableau doit avoir le MEME nombre d'items            ║
+    ║  (sinon ArrayIndexOutOfBoundsException)                      ║
+    ╚═══════════════════════════════════════════════════════════════╝
+-->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- string-array : tableau de chaines de texte -->
+    <string-array name="contact_noms">
+        <item>Alice Dupont</item>
+        <item>Bob Martin</item>
+        <item>Charlie Durand</item>
+        <item>Diana Prince</item>
+        <item>Eve Lambert</item>
+    </string-array>
+
+    <string-array name="contact_telephones">
+        <item>06 01 02 03 04</item>
+        <item>06 11 22 33 44</item>
+        <item>06 55 66 77 88</item>
+        <item>06 99 88 77 66</item>
+        <item>06 12 34 56 78</item>
+    </string-array>
+
+    <string-array name="contact_emails">
+        <item>alice@email.com</item>
+        <item>bob@email.com</item>
+        <item>charlie@email.com</item>
+        <item>diana@email.com</item>
+        <item>eve@email.com</item>
+    </string-array>
+
+    <!-- array (pas string-array) : pour les references de ressources -->
+    <!-- Ici on utilise des icones Android par defaut -->
+    <array name="contact_images">
+        <item>@android:drawable/ic_menu_myplaces</item>
+        <item>@android:drawable/ic_menu_myplaces</item>
+        <item>@android:drawable/ic_menu_myplaces</item>
+        <item>@android:drawable/ic_menu_myplaces</item>
+        <item>@android:drawable/ic_menu_myplaces</item>
+    </array>
+
+</resources>

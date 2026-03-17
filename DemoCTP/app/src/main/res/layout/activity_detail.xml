@@ -1,0 +1,18 @@
+<!--
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║  LAYOUT DETAIL - Contient un FrameLayout pour le Fragment    ║
+    ║  LIEN : DetailActivity.java → ActivityDetailBinding          ║
+    ║                                                               ║
+    ║  FrameLayout = conteneur simple qui empile les vues          ║
+    ║  Ideal pour accueillir des Fragments dynamiquement           ║
+    ║  Le Fragment sera insere via FragmentManager.replace()       ║
+    ╚═══════════════════════════════════════════════════════════════╝
+-->
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- FrameLayout : conteneur pour le Fragment -->
+<!-- Le Fragment sera charge dedans via Java (getSupportFragmentManager) -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragmentContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />

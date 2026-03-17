@@ -1,0 +1,53 @@
+<!--
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║  LAYOUT LISTE - Toolbar + message + RecyclerView + bouton    ║
+    ║  LIEN : ListeActivity.java → ActivityListeBinding            ║
+    ║                                                               ║
+    ║  Le RecyclerView est le composant qui affiche la liste       ║
+    ║  Il a BESOIN de 3 choses pour fonctionner :                  ║
+    ║  1. Un Adapter (dans le Java)                                ║
+    ║  2. Un LayoutManager (dans le Java)                          ║
+    ║  3. Un layout pour chaque item (item_contact.xml)            ║
+    ╚═══════════════════════════════════════════════════════════════╝
+-->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Toolbar = barre d'action personnalisee (pour les menus) -->
+    <!-- On la declare dans le XML et on l'active avec setSupportActionBar() en Java -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp" />
+
+    <!-- Message de bienvenue -->
+    <TextView
+        android:id="@+id/textViewBienvenue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bienvenue !"
+        android:textSize="18sp"
+        android:padding="16dp" />
+
+    <!-- RecyclerView : LA liste scrollable -->
+    <!-- layout_weight="1" → prend tout l'espace restant (comme flex:1 en CSS) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerContacts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Bouton en bas -->
+    <Button
+        android:id="@+id/btnDeconnexion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Deconnexion"
+        android:layout_margin="16dp" />
+
+</LinearLayout>

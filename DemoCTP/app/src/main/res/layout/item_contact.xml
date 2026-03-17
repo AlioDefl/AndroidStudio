@@ -1,0 +1,72 @@
+<!--
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║  LAYOUT D'UN ITEM - Ce qui est affiche pour CHAQUE contact   ║
+    ║  LIEN : ContactViewHolder.java → ItemContactBinding          ║
+    ║         ContactAdapter.onCreateViewHolder() → inflate ce XML ║
+    ║                                                               ║
+    ║  Ce layout est REPETE pour chaque element de la liste        ║
+    ║  → layout_height doit etre wrap_content (PAS match_parent)  ║
+    ╚═══════════════════════════════════════════════════════════════╝
+-->
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- LinearLayout horizontal : image a gauche, textes a droite -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="?android:attr/selectableItemBackground">
+    <!-- ↑ selectableItemBackground = effet de clic (ripple) -->
+
+    <!-- ImageView : l'image du contact -->
+    <ImageView
+        android:id="@+id/imageViewContact"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Photo du contact" />
+
+    <!-- Bloc de textes a droite de l'image -->
+    <!-- LinearLayout imbrique (vertical) dans le horizontal -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp"
+        android:layout_gravity="center_vertical">
+
+        <!-- Nom en gras -->
+        <TextView
+            android:id="@+id/textViewNom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#000000" />
+
+        <!-- Telephone -->
+        <TextView
+            android:id="@+id/textViewTelephone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telephone"
+            android:textSize="14sp"
+            android:textColor="#555555"
+            android:layout_marginTop="2dp" />
+
+        <!-- Email (1 ligne max, coupe avec ...) -->
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="12sp"
+            android:textColor="#888888"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginTop="2dp" />
+
+    </LinearLayout>
+</LinearLayout>

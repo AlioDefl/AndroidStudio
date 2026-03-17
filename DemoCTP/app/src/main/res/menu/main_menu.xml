@@ -1,0 +1,42 @@
+<!--
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║  MENU OPTIONS - Barre d'action                               ║
+    ║  LIEN : ListeActivity.onCreateOptionsMenu() → inflate ce XML ║
+    ║         ListeActivity.onOptionsItemSelected() → reagit aux clics ║
+    ║                                                               ║
+    ║  showAsAction :                                              ║
+    ║  - always  → toujours visible dans la barre                 ║
+    ║  - ifRoom  → visible si la place le permet                  ║
+    ║  - never   → toujours dans le menu overflow (3 points)      ║
+    ╚═══════════════════════════════════════════════════════════════╝
+-->
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Bouton "+" toujours visible -->
+    <item
+        android:id="@+id/action_ajouter"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Ajouter"
+        app:showAsAction="always" />
+
+    <!-- Reinitialiser : visible si la place -->
+    <item
+        android:id="@+id/action_reinitialiser"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:title="Reinitialiser"
+        app:showAsAction="ifRoom" />
+
+    <!-- Dans le menu overflow (3 points) -->
+    <item
+        android:id="@+id/action_grille"
+        android:title="Affichage grille"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_liste"
+        android:title="Affichage liste"
+        app:showAsAction="never" />
+
+</menu>

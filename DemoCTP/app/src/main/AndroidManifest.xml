@@ -1,0 +1,47 @@
+<!--
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║  ANDROIDMANIFEST.XML - La carte d'identite de l'app          ║
+    ║  Chaque Activity DOIT etre declaree ici sinon CRASH          ║
+    ╚═══════════════════════════════════════════════════════════════╝
+-->
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- PERMISSIONS : a mettre AVANT <application> -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+        android:name=".DemoApplication"
+        ↑ CRUCIAL : dit a Android d'utiliser NOTRE classe Application
+        Si tu oublies ca, getApplicationContext() ne retournera pas ton DemoApplication
+    -->
+    <application
+        android:name=".DemoApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Material3.Light.NoActionBar">
+
+        <!--
+            ACTIVITE PRINCIPALE (point d'entree de l'app)
+            android:exported="true" + intent-filter LAUNCHER = c'est elle qui se lance
+        -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+            AUTRES ACTIVITES : exported="false" car lancees en interne
+            Chaque Activity que tu crees DOIT avoir une ligne ici
+        -->
+        <activity android:name=".ListeActivity" android:exported="false" />
+        <activity android:name=".DetailActivity" android:exported="false" />
+    </application>
+</manifest>
