@@ -1,0 +1,95 @@
+{
+  "tasks": [
+    {
+      "category": "Administration",
+      "priority": "HAUTE",
+      "due_date": "10-04-2024",
+      "short_description": "Préparer le rapport mensuel.",
+      "description": "Cette tâche implique de compiler les données du mois précédent, d'analyser les tendances et de rédiger un rapport détaillé pour la direction. Il est crucial de respecter la date limite pour informer les décisions futures de l'entreprise."
+    },
+    {
+      "category": "Administration",
+      "priority": "MOYENNE",
+      "due_date": "25-04-2024",
+      "short_description": "Mise à jour de la base de données clients.",
+      "description": "Cette tâche consiste à vérifier les informations des clients dans la base de données, à mettre à jour les détails manquants et à supprimer les entrées obsolètes. Bien que ce ne soit pas urgent, il est important de maintenir nos données clients à jour pour des communications efficaces."
+    },
+    {
+      "category": "Administration",
+      "priority": "HAUTE",
+      "due_date": "15-04-2024",
+      "short_description": "Planification réunion trimestrielle.",
+      "description": "Organiser la réunion trimestrielle pour discuter des performances du département, des objectifs à venir et des défis rencontrés. Cette réunion est cruciale pour assurer une communication transparente au sein de l'équipe et pour aligner les efforts sur les objectifs organisationnels."
+    },
+    {
+      "category": "Marketing",
+      "priority": "HAUTE",
+      "due_date": "05-05-2024",
+      "short_description": "Finaliser le budget annuel.",
+      "description": "Examiner les propositions budgétaires des différents départements, consolider les chiffres, effectuer des ajustements si nécessaire et présenter le budget final au comité de direction. Cette tâche est essentielle pour la planification financière de l'année à venir."
+    },
+    {
+      "category": "Administration",
+      "priority": "MOYENNE",
+      "due_date": "05-09-2024",
+      "short_description": "Répondre aux demandes clients.",
+      "description": "Gérer les demandes de renseignements des clients via e-mail et téléphone, fournir des réponses précises et résoudre les problèmes rencontrés. Bien que cela ne soit pas urgent, il est important de répondre rapidement pour maintenir la satisfaction client."
+    },
+    {
+      "category": "RH",
+      "priority": "MOYENNE",
+      "due_date": "20-04-2024",
+      "short_description": "Organisation voyage conférence.",
+      "description": "Réserver les billets d'avion, l'hébergement et organiser le transport terrestre pour les employés participant à la conférence professionnelle. Bien que cela ne soit pas urgent, une planification précoce garantira des arrangements sans accroc."
+    },
+    {
+      "category": "Logistique",
+      "priority": "FAIBLE",
+      "due_date": "30-04-2024",
+      "short_description": "Mise en place système gestion stocks.",
+      "description": "Évaluer les besoins en matière de gestion des stocks, sélectionner un système approprié, le configurer et former le personnel à son utilisation. La mise en place d'un système efficace améliorera la gestion des stocks et réduira les risques de rupture de stock."
+    },
+    {
+      "category": "RH",
+      "priority": "MOYENNE",
+      "due_date": "15-05-2024",
+      "short_description": "Organisation atelier développement.",
+      "description": "Planifier et coordonner un atelier de développement professionnel pour les employés, en invitant des intervenants experts dans divers domaines pertinents. Bien que cela ne soit pas urgent, cela contribuera à l'amélioration des compétences et de la motivation des employés."
+    },
+    {
+      "category": "Marketing",
+      "priority": "HAUTE",
+      "due_date": "08-04-2024",
+      "short_description": "Rédaction rapport marché.",
+      "description": "Collecter des données sur le marché, analyser les tendances et les concurrents, et rédiger un rapport détaillé pour aider à orienter les stratégies commerciales. Ce rapport est crucial pour comprendre l'environnement concurrentiel et identifier les opportunités de croissance."
+    },
+    {
+      "category": "Logistique",
+      "priority": "MOYENNE",
+      "due_date": "22-04-2024",
+      "short_description": "Tests qualité nouveaux produits.",
+      "description": "Tester les nouveaux produits pour s'assurer qu'ils répondent aux normes de qualité et de sécurité établies, et documenter les résultats des tests. Bien que cela ne soit pas urgent, des tests approfondis sont essentiels pour garantir la satisfaction des clients."
+    },
+    {
+      "category": "RH",
+      "priority": "HAUTE",
+      "due_date": "12-04-2024",
+      "short_description": "Révision politiques internes.",
+      "description": "Examiner et mettre à jour les politiques et procédures internes pour assurer leur conformité aux réglementations en vigueur et leur pertinence opérationnelle. Cette tâche est essentielle pour maintenir la conformité légale et améliorer l'efficacité organisationnelle."
+    },
+    {
+      "category": "RH",
+      "priority": "MOYENNE",
+      "due_date": "29-04-2024",
+      "short_description": "Organisation journée bénévolat.",
+      "description": "Coordonner une journée de bénévolat où les employés participent à des activités communautaires pour soutenir des causes locales. Bien que cela ne soit pas urgent, cela renforcera l'engagement des employés et renforcera la responsabilité sociale de l'entreprise."
+    },
+    {
+      "category": "Marketing",
+      "priority": "FAIBLE",
+      "due_date": "18-04-2024",
+      "short_description": "Analyse rentabilité produits.",
+      "description": "Examiner les coûts de production, les prix de vente et les marges bénéficiaires des produits pour identifier les opportunités d'optimisation et de rentabilité. Cette analyse est cruciale pour prendre des décisions éclairées sur la gamme de produits et les prix."
+    }
+  ]
+}

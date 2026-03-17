@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="337dp"
+        android:layout_height="242dp"
+        android:orientation="vertical"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="60dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Super Tâches"
+            android:textAlignment="center"
+            android:textSize="48sp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mes tâches" />
+
+        <Button
+            android:id="@+id/buttonQuit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quitter" />
+
+        <TextView
+            android:id="@+id/textViewTodo"
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
+
+        <TextView
+            android:id="@+id/textViewUrgent"
+            android:layout_width="match_parent"
+            android:layout_height="31dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
