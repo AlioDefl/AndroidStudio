@@ -1,47 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="337dp"
-        android:layout_height="242dp"
-        android:orientation="vertical"
+    <!-- Q2 : Titre "Super Taches" -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Super Tâches"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="60dp">
+        android:textSize="48sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="24dp" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Super Tâches"
-            android:textAlignment="center"
-            android:textSize="48sp" />
+    <!-- Q2 : Bouton "Mes taches" → lance TacheActivity (Q5) -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mes tâches" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mes tâches" />
+    <!-- Q2/Q3 : Bouton "Quitter" → finish() -->
+    <Button
+        android:id="@+id/buttonQuit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quitter" />
 
-        <Button
-            android:id="@+id/buttonQuit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quitter" />
+    <!-- Q4 : Nombre de taches a faire -->
+    <TextView
+        android:id="@+id/textViewTodo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:padding="4dp" />
 
-        <TextView
-            android:id="@+id/textViewTodo"
-            android:layout_width="match_parent"
-            android:layout_height="32dp" />
+    <!-- Q4 : Nombre de taches urgentes -->
+    <TextView
+        android:id="@+id/textViewUrgent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:padding="4dp" />
 
-        <TextView
-            android:id="@+id/textViewUrgent"
-            android:layout_width="match_parent"
-            android:layout_height="31dp" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

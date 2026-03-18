@@ -1,9 +1,7 @@
 package fr.iutlille.ctp2024;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,15 +25,24 @@ public class TacheViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(Tache tache) {
-        checkBox.setChecked(tache.getStatus().equals(Status.FAIT));
         tacheInfo.setText(tache.getNom());
         category.setText(tache.getCategorie());
         deadline.setText(DateFormat.getDateInstance().format(tache.getEcheance()));
         priority.setText(tache.getPriorite().toString());
+
+        // Q7 : IMPORTANT - Retirer le listener AVANT de changer l'etat de la checkbox
+        // Sinon quand le RecyclerView recycle une vue, setChecked() declenche
+        // l'ancien listener sur la MAUVAISE tache (bug classique)
+        checkBox.setOnCheckedChangeListener(null);
+
+        // Cocher/decocher selon le status actuel
+        checkBox.setChecked(tache.getStatus().equals(Status.FAIT));
+
+        // Puis remettre le listener APRES
         checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if(isChecked){
+            if (isChecked) {
                 tache.setStatus(Status.FAIT);
-            }else{
+            } else {
                 tache.setStatus(Status.AFAIRE);
             }
         });

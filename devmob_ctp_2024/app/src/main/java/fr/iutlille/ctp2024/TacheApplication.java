@@ -29,7 +29,11 @@ public class TacheApplication extends Application {
         super.onCreate();
         try {
             initTaches();
-            Log.i(LOG_TAG, getTaches().toString());
+            // Q1 : Affichage des taches et categories dans le Logcat
+            for (Tache t : lesTaches) {
+                Log.i(LOG_TAG, t.toString());
+            }
+            Log.i(LOG_TAG, "Catégories : " + lesCategories.toString());
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Erreur de lecture du fichier des taches...");
             e.printStackTrace();
